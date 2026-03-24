@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Golden Crumbs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mustard: #E8A317;
+      --ketchup: #C63D2F;
+      --cream: #FDF6E3;
+      --brown: #3D2314;
+      --charcoal: #1a1a1a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Josefin Sans', sans-serif; background: var(--cream); color: var(--brown); min-height: 100vh; }
+
+    /* NAV */
+    nav { background: var(--brown); padding: 16px 32px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    nav .logo { font-family: 'Abril Fatface', cursive; color: var(--mustard); font-size: 1.5rem; text-decoration: none; }
+    nav .logo span { color: var(--cream); }
+    nav .nav-links { display: flex; gap: 20px; }
+    nav .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.2s; }
+    nav .nav-links a:hover { opacity: 1; }
+
+    /* STRING LIGHTS */
+    .string-lights { background: var(--brown); height: 32px; overflow: hidden; position: relative; }
+    .string-lights::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--mustard) 0%, var(--ketchup) 50%, var(--mustard) 100%); }
+    .light-row { display: flex; justify-content: space-around; padding-top: 8px; }
+    .light { width: 14px; height: 18px; border-radius: 0 0 50% 50%; animation: glow 2s ease-in-out infinite; }
+    .light:nth-child(odd) { background: var(--mustard); animation-delay: 0s; }
+    .light:nth-child(even) { background: var(--ketchup); animation-delay: 1s; }
+    .light:nth-child(3n) { background: #f5e6c8; animation-delay: 0.5s; }
+    @keyframes glow {
+      0%, 100% { opacity: 0.6; box-shadow: none; }
+      50% { opacity: 1; box-shadow: 0 0 8px 2px currentColor; }
+    }
+
+    /* HEADER */
+    .admin-header { text-align: center; padding: 48px 24px 32px; }
+    .admin-header h1 { font-family: 'Abril Fatface', cursive; font-size: 3rem; color: var(--brown); }
+    .admin-header p { font-family: 'Crimson Text', serif; font-size: 1.2rem; opacity: 0.7; margin-top: 8px; font-style: italic; }
+    .admin-badge { display: inline-block; background: var(--ketchup); color: white; padding: 4px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+
+    /* STATS GRID */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; padding: 0 32px 40px; max-width: 1000px; margin: 0 auto; }
+    .stat-card { background: white; border-radius: 16px; padding: 28px; text-align: center; box-shadow: 0 4px 20px rgba(61,35,20,0.08); border-top: 4px solid var(--mustard); transition: transform 0.2s; }
+    .stat-card:hover { transform: translateY(-4px); }
+    .stat-card.ketchup { border-top-color: var(--ketchup); }
+    .stat-card.cream { border-top-color: #f5e6c8; }
+    .stat-number { font-family: 'Abril Fatface', cursive; font-size: 3.5rem; color: var(--brown); line-height: 1; }
+    .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-top: 8px; }
+    .stat-icon { font-size: 2rem; margin-bottom: 8px; }
+
+    /* DATA TABLE */
+    .data-section { max-width: 1000px; margin: 0 auto; padding: 0 32px 48px; }
+    .section-title { font-family: 'Abril Fatface', cursive; font-size: 1.8rem; color: var(--brown); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 3px solid var(--mustard); display: flex; align-items: center; gap: 12px; }
+    .email-list { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(61,35,20,0.08); }
+    .email-item { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 16px 24px; border-bottom: 1px solid rgba(61,35,20,0.08); transition: background 0.15s; }
+    .email-item:last-child { border-bottom: none; }
+    .email-item:hover { background: rgba(232,163,23,0.05); }
+    .email-addr { font-family: 'Crimson Text', serif; font-size: 1.1rem; }
+    .email-date { font-size: 0.85rem; opacity: 0.5; white-space: nowrap; }
+    .email-index { width: 28px; height: 28px; background: var(--mustard); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .email-empty { padding: 40px; text-align: center; opacity: 0.4; font-family: 'Crimson Text', serif; font-size: 1.2rem; }
+
+    /* RECIPE STATS */
+    .recipe-grid-admin { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+    .recipe-stat-item { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 10px rgba(61,35,20,0.06); }
+    .recipe-stat-item .r-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+    .recipe-stat-item .r-cat { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; }
+    .recipe-stat-item .r-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 700; margin-top: 6px; }
+    .badge-frittiert { background: var(--ketchup); color: white; }
+    .badge-suess { background: var(--mustard); color: var(--brown); }
+    .badge-soul { background: var(--brown); color: var(--cream); }
+    .badge-herzhaft { background: #8B7355; color: white; }
+    .badge-getraenk { background: #4a9e6e; color: white; }
+
+    /* ACTION BUTTONS */
+    .action-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .btn { padding: 10px 24px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .btn-mustard { background: var(--mustard); color: var(--brown); }
+    .btn-ketchup { background: var(--ketchup); color: white; }
+    .btn-brown { background: var(--brown); color: var(--cream); }
+
+    /* FOOTER */
+    footer { background: var(--brown); color: var(--cream); text-align: center; padding: 24px; font-size: 0.85rem; opacity: 0.7; }
+    footer a { color: var(--mustard); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .admin-header h1 { font-size: 2rem; }
+      .stats-grid { padding: 0 16px 32px; }
+      .data-section { padding: 0 16px 32px; }
+      nav { padding: 12px 16px; }
+      .nav-links { gap: 12px; }
+    }
+
+    /* LOADING */
+    .loading { text-align: center; padding: 40px; font-family: 'Crimson Text', serif; font-style: italic; opacity: 0.5; }
+    .loading::after { content: '...'; animation: dots 1.5s infinite; }
+    @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
+
+    /* CHART BAR */
+    .bar-chart { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(61,35,20,0.08); }
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .bar-label { width: 120px; font-size: 0.85rem; flex-shrink: 0; }
+    .bar-track { flex: 1; height: 24px; background: rgba(61,35,20,0.08); border-radius: 12px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 12px; background: linear-gradient(90deg, var(--mustard), var(--ketchup)); transition: width 0.6s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.75rem; font-weight: 700; color: white; }
+    .bar-value { width: 40px; text-align: right; font-size: 0.85rem; font-weight: 700; color: var(--brown); }
+  </style>
+</head>
+<body>
+
+<!-- STRING LIGHTS -->
+<div class="string-lights">
+  <div class="light-row">
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Golden<span>Crumbs</span></a>
+  <div class="nav-links">
+    <a href="index.html">Rezepte</a>
+    <a href="blog.html">Blog</a>
+    <a href="events.html">Events</a>
+    <a href="ueber.html">Über uns</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="admin-header">
+  <div class="admin-badge">🔒 Admin Dashboard</div>
+  <h1>Golden Crumbs</h1>
+  <p>American Fair Food — Metropole Ruhr</p>
+</section>
+
+<!-- STATS -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-icon">📧</div>
+    <div class="stat-number" id="subscriber-count">—</div>
+    <div class="stat-label">Abonnenten</div>
+  </div>
+  <div class="stat-card ketchup">
+    <div class="stat-icon">🍳</div>
+    <div class="stat-number" id="recipe-count">63</div>
+    <div class="stat-label">Rezepte</div>
+  </div>
+  <div class="stat-card cream">
+    <div class="stat-icon">🌐</div>
+    <div class="stat-number">DE</div>
+    <div class="stat-label">Region</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📅</div>
+    <div class="stat-number" id="last-signup">—</div>
+    <div class="stat-label">Letzte Anmeldung</div>
+  </div>
+</div>
+
+<!-- RECIPE CATEGORIES CHART -->
+<div class="data-section">
+  <h2 class="section-title">📊 Rezepte nach Kategorie</h2>
+  <div class="bar-chart" id="category-chart">
+    <div class="loading">Lade Daten</div>
+  </div>
+</div>
+
+<!-- EMAIL LIST -->
+<div class="data-section">
+  <h2 class="section-title">📧 Newsletter Abonnenten</h2>
+  <div class="email-list" id="email-list">
+    <div class="loading">Lade E-Mail-Adressen</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+  <div class="ad-banner" style="background:#fdf6e3;padding:16px;text-align:center;margin:24px auto;max-width:800px;border-radius:8px;border:1px dashed #E8A317;">
+    <p style="font-size:0.75rem;color:#999;margin:0 0 8px;">Werbung</p>
+    <div style="background:#eee;padding:20px;border-radius:4px;font-size:0.8rem;color:#999;">
+      AdSense/Ezoic Code hier — responsive ad unit (728x90 or 300x250)
+    </div>
+  </div>
+
+  <footer>
+  <p>© 2026 <a href="index.html">Golden Crumbs</a> — American Fair Food aus der Metropole Ruhr</p>
+</footer>
+
+<script>
+const RECIPES = [
+  {name:"Funnel Cakes",cat:"Frittiert",tag:"frittiert"},
+  {name:"Corn Dogs",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Fried Cheese",cat:"Frittiert",tag:"frittiert"},
+  {name:"Jalapeño Poppers",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Fried Twinkies",cat:"Süß",tag:"suess"},
+  {name:"Mac & Cheese Bites",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Smoked Turkey Leg",cat:"Soul Food",tag:"soul"},
+  {name:"Fried Oreos",cat:"Süß",tag:"suess"},
+  {name:"Elote",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Hush Puppies",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Loaded Fries",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Sweet Potato Fries",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Candied Bacon",cat:"Süß",tag:"suess"},
+  {name:"Fresh Lemonade",cat:"Getränke",tag:"getraenk"},
+  {name:"BBQ Pulled Pork",cat:"Soul Food",tag:"soul"},
+  {name:"Pimento Cheese",cat:"Soul Food",tag:"soul"},
+  {name:"Cornbread",cat:"Soul Food",tag:"soul"},
+  {name:"Fried Avocado",cat:"Frittiert",tag:"frittiert"},
+  {name:"Fried Bananas",cat:"Süß",tag:"suess"},
+  {name:"Fried Pickles",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Deep-Fried Ice Cream",cat:"Süß",tag:"suess"},
+  {name:"Funnel Fries",cat:"Süß",tag:"suess"},
+  {name:"Apple Pie Rolls",cat:"Süß",tag:"suess"},
+  {name:"Beer Cheese Dip",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Smoked Brisket",cat:"Soul Food",tag:"soul"},
+  {name:"Creamy Coleslaw",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Slow-Cooked Baked Beans",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"Sweet Tea",cat:"Getränke",tag:"getraenk"},
+  {name:"Southern Fried Catfish",cat:"Soul Food",tag:"soul"},
+  {name:"Bloomin' Onion",cat:"Frittiert",tag:"frittiert"},
+  {name:"Fried Green Tomatoes",cat:"Soul Food",tag:"soul"},
+  {name:"BBQ Ribs",cat:"Soul Food",tag:"soul"},
+  {name:"Fried Okra",cat:"Soul Food",tag:"soul"},
+  {name:"Collard Greens",cat:"Soul Food",tag:"soul"},
+  {name:"Biscuits and Gravy",cat:"Soul Food",tag:"soul"},
+  {name:"Fried Chicken Sandwich",cat:"Soul Food",tag:"soul"},
+  {name:"Mozzarella Sticks",cat:"Frittiert",tag:"frittiert"},
+  {name:"Crab Rangoon",cat:"Frittiert",tag:"frittiert"},
+  {name:"Coconut Shrimp",cat:"Frittiert",tag:"frittiert"},
+  {name:"Sloppy Joes",cat:"Soul Food",tag:"soul"},
+  {name:"Baked Mac and Cheese",cat:"Soul Food",tag:"soul"},
+  {name:"Crispy Fried Mushrooms",cat:"Frittiert",tag:"frittiert"},
+  {name:"Arnold Palmer",cat:"Getränke",tag:"getraenk"},
+  {name:"Fried Mac & Cheese Wedges",cat:"Frittiert",tag:"frittiert"},
+  {name:"Banana Pudding",cat:"Süß",tag:"suess"},
+  {name:"Black-Eyed Peas",cat:"Soul Food",tag:"soul"},
+  {name:"Boudin Balls",cat:"Soul Food",tag:"soul"},
+  {name:"Bread Pudding",cat:"Süß",tag:"suess"},
+  {name:"Butter Beans",cat:"Soul Food",tag:"soul"},
+  {name:"Chicken Fried Steak",cat:"Soul Food",tag:"soul"},
+  {name:"Dirty Rice",cat:"Soul Food",tag:"soul"},
+  {name:"Crawfish Étouffée",cat:"Soul Food",tag:"soul"},
+  {name:"Catfish Po' Boy",cat:"Soul Food",tag:"soul"},
+  {name:"Fried Green Beans",cat:"Frittiert",tag:"frittiert"},
+  {name:"Loaded Potato Skins",cat:"Herzhaft",tag:"herzhaft"},
+  {name:"King Cake",cat:"Süß",tag:"suess"},
+  {name:"Mini Donuts",cat:"Süß",tag:"suess"},
+  {name:"Peach Cobbler",cat:"Süß",tag:"suess"},
+  {name:"Pecan Pie",cat:"Süß",tag:"suess"},
+  {name:"Red Beans and Rice",cat:"Soul Food",tag:"soul"},
+  {name:"Shrimp and Grits",cat:"Soul Food",tag:"soul"},
+  {name:"Snickers Salad",cat:"Süß",tag:"suess"},
+  {name:"Sweet Potato Casserole",cat:"Soul Food",tag:"soul"},
+];
+
+// Category chart
+const cats = {};
+RECIPES.forEach(r => { cats[r.cat] = (cats[r.cat] || 0) + 1; });
+const catColors = {
+  'Frittiert': 'var(--ketchup)',
+  'Süß': 'var(--mustard)',
+  'Soul Food': 'var(--brown)',
+  'Herzhaft': '#8B7355',
+  'Getränke': '#4a9e6e',
+};
+const maxCat = Math.max(...Object.values(cats));
+let chartHtml = '';
+Object.entries(cats).sort((a,b) => b[1]-a[1]).forEach(([cat, count]) => {
+  const pct = Math.round((count / maxCat) * 100);
+  const color = catColors[cat] || 'var(--mustard)';
+  chartHtml += `<div class="bar-row">
+    <div class="bar-label">${cat}</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:${pct}%;background:${color}">${count}</div>
+    </div>
+    <div class="bar-value">${count}</div>
+  </div>`;
+});
+document.getElementById('category-chart').innerHTML = chartHtml;
+
+// Newsletter data
+async function loadNewsletter() {
+  try {
+    const res = await fetch('/api/newsletter/count');
+    const data = await res.json();
+    document.getElementById('subscriber-count').textContent = data.count || 0;
+    if (data.last) {
+      const d = new Date(data.last);
+      document.getElementById('last-signup').textContent = d.toLocaleDateString('de-DE', {day:'2-digit',month:'2-digit'});
+    }
+  } catch(e) {
+    document.getElementById('subscriber-count').textContent = '?';
+    document.getElementById('last-signup').textContent = '?';
+  }
+}
+loadNewsletter();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+services:
+  newsletter:
+    build:
+      context: .
+      dockerfile: Dockerfile.newsletter
+    container_name: goldencrumb-newsletter
+    restart: always
+    volumes:
+      - /home/sonny/goldencrumb:/home/sonny/goldencrumb
+    networks:
+      - agency-app_app-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.newsletter.rule=Host(`newsletter.goldencrumb.shadowsinthe.space`)"
+      - "traefik.http.routers.newsletter.entrypoints=web,websecure"
+      - "traefik.http.routers.newsletter.tls=true"
+      - "traefik.http.routers.newsletter.tls.certresolver=letsencrypt"
+      - "traefik.http.services.newsletter.loadbalancer.server.port=3001"
+
+networks:
+  agency-app_app-network:
+    external: true

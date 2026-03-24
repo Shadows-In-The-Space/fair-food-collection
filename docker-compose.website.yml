@@ -1,0 +1,21 @@
+services:
+  goldencrumb:
+    image: nginx:alpine
+    container_name: goldencrumb
+    restart: always
+    volumes:
+      - /home/sonny/goldencrumb:/usr/share/nginx/html:ro
+      - /home/sonny/goldencrumb/nginx.custom.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - agency-app_app-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.goldencrumb.rule=Host(`goldencrumb.shadowsinthe.space`)"
+      - "traefik.http.routers.goldencrumb.entrypoints=web,websecure"
+      - "traefik.http.routers.goldencrumb.tls=true"
+      - "traefik.http.routers.goldencrumb.tls.certresolver=letsencrypt"
+      - "traefik.http.services.goldencrumb.loadbalancer.server.port=80"
+
+networks:
+  agency-app_app-network:
+    external: true
