@@ -104,6 +104,46 @@ The visual identity is **carnival / state-fair nostalgic** — think string ligh
 
 The DESIGN.md captures this identity as a structured contract so any future UI work (new pages, redesign, components) stays on-brand without re-deriving the rules from inspection.
 
+## Brand Inspiration (verified from public sources)
+
+Per Sonny's 2026-06-19 directive. Two American chains studied as reference points — not to copy, but to understand what makes a soul-food / Southern brand unmistakable.
+
+### Popeyes Louisiana Kitchen (inspiration source 1)
+
+- **Revenue:** $1B+ globally, 3,800+ locations in 30+ countries
+- **Founded:** 1972 in New Orleans
+- **Brand colors:** Red, orange (bright), white. The brand calls its primary color **"unapologetically orange"** — saturated, warm, hunger-triggering.
+- **Typography:** Custom **"dancing letters"** wordmark — playful, friendly, slight imperfection. Bold sans-serif uppercase, hand-crafted energy.
+- **Signature element:** The fleur-de-lis (New Orleans heritage). Always present in mark variants.
+- **Brand voice:** "Love That Chicken" (since 1980). Warm, emotional, bold, direct.
+- **What we take from it:**
+  - **Unapologetic warm color palette** — don't dilute the mustard/ketchup. Push saturation, not down.
+  - **Hand-crafted feel in type** — Abril Fatface's slight irregularity does the same job as Popeyes' dancing letters.
+  - **Heritage-as-identity** — lead with Ruhrgebiet + Carnival roots in the hero, not just in the brand name.
+
+### Bojangles' (inspiration source 2)
+
+- **Revenue:** $1.5B+ (private), 800+ locations, NASDAQ-listed 2015-2018
+- **Founded:** 1977 in Charlotte, North Carolina
+- **Brand colors:** Red, yellow, black. Red "increases appetite and emphasizes the warm, hospitable style of Southern cuisine." Yellow background = warm/welcoming.
+- **Typography:** Handwritten **"Bojangle's"** with intentional irregularity, slight wave-like deviations, asymmetrical character spacing. The signature **star above the "j"** as a single recurring accent.
+- **2020 rebrand:** Simplified to just the name + star. "Conciseness and digital universality" — they removed everything that wasn't earning its place.
+- **What we take from it:**
+  - **Single signature element** — the star above the "j" is recognized across decades. We need an equivalent: a 5-pointed fair-poster star, the bunting itself, or the bumble-bee carnival mascot.
+  - **"Remove what isn't earning its place"** — Bojangles' 2020 rebrand stripped the emblem down. Apply same discipline: if a recipe page has elements that don't add to the recipe, remove them.
+  - **Asymmetric handcrafted typography** — already aligned with our Abril Fatface choice.
+
+### What we do NOT take from them
+
+- **Popeyes' speed/QSR template** — we're a recipe blog, not a fast-food chain. We don't optimize for "order in 30 seconds" — we optimize for "stay 5 minutes and bookmark."
+- **Bojangles' yellow base** — too far from our warm-brown ink identity. We stay on cream surface.
+- **The corporate-clean geometry of their 2020 rebrand** — we're a vintage fair-poster aesthetic, not a digital minimalism brand. The bunting stays.
+- **Their logo lockup** — they have a registered mark. We have a Carnival poster. Different artifact class.
+
+## What this means in practice
+
+When making any design decision, ask: "Does this serve the brand as carnival / state-fair / Ruhrgebiet?" If not, cut it (Bojangles' discipline) or push it harder (Popeyes' boldness).
+
 ## Colors
 
 The palette is a **warm, food-evocative triad** — not neutral + accent, but three warm primary-like colors that all sit comfortably together:

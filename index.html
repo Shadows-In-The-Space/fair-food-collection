@@ -294,10 +294,20 @@
     .hero h1 span { color: var(--mustard); }
     .hero-tagline {
       font-family: 'Josefin Sans', sans-serif;
-      font-size: 1.1rem;
-      color: rgba(253,246,227,0.85);
-      letter-spacing: 2px;
+      font-size: 1.4rem;
+      color: var(--cream);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .hero-tagline strong { color: var(--primary); font-weight: 700; letter-spacing: 0.5px; }
+    .hero-subline {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.05rem;
+      color: rgba(253,246,227,0.75);
       margin-bottom: 32px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-cta {
       display: inline-block;
@@ -519,6 +529,34 @@
     }
     .newsletter h2 { font-size: 2.5rem; color: var(--brown); margin-bottom: 12px; }
     .newsletter p { color: var(--brown); opacity: 0.8; margin-bottom: 32px; font-size: 1.05rem; }
+
+    /* === WHY GOLDENCRUMBS (Popeyes/Bojangles-inspired value props) === */
+    .why-goldencrumbs { padding: 80px 48px; max-width: 1200px; margin: 0 auto; text-align: center; }
+    .why-goldencrumbs h2 { color: var(--brown); font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 48px; line-height: 1.2; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; }
+    .why-card {
+      background: var(--surface-alt);
+      border: 1px dashed var(--primary);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .why-numeral {
+      font-family: 'Abril Fatface', serif;
+      font-size: 3rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .why-card h3 { color: var(--brown); font-size: 1.4rem; margin-bottom: 12px; line-height: 1.2; }
+    .why-card p { color: var(--ink-alt); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+    @media (max-width: 900px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-goldencrumbs { padding: 64px 24px; }
+    }
     .nl-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .nl-form input {
       padding: 14px 24px;
@@ -768,7 +806,8 @@
     <div class="hero-content">
       <div class="hero-badge">★ Soul Food · Fair Food · Frittiert ★</div>
       <h1>Golden<br><span>Crumbs</span></h1>
-      <p class="hero-tagline">Authentische American Fair Food Rezepte — direkt aus der Metropole Ruhr</p>
+      <p class="hero-tagline"><strong>Frittiert. Soulvoll. Aus dem Ruhrgebiet.</strong></p>
+      <p class="hero-subline">Authentische American Fair Food Rezepte — direkt aus der Metropole Ruhr. Wo Kirmes auf State Fair trifft.</p>
       <a href="#rezepte" class="hero-cta">Rezepte entdecken</a>
     </div>
   </section>
@@ -785,6 +824,29 @@
     <div class="flag"></div><div class="flag"></div><div class="flag"></div>
     <div class="flag"></div>
   </div>
+
+  <!-- WHY GOLDENCRUMBS (Popeyes / Bojangles-inspired value props) -->
+  <section class="why-goldencrumbs scroll-reveal" id="warum">
+    <p class="section-label">Warum Golden Crumbs</p>
+    <h2>Drei Gründe, heute Abend zu frittieren.</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-numeral">01</div>
+        <h3>Authentisch.<br>Kein Kompromiss.</h3>
+        <p>Jedes Rezept kommt mit Schritt-für-Schritt-Anleitung, die funktioniert — nicht nur hübsch aussieht. Wir testen, wir messen, wir verfeinern.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-numeral">02</div>
+        <h3>Zwei Kulturen.<br>Eine Küche.</h3>
+        <p>American State Fair × Deutscher Kirmes. Funnel Cake neben Schmalzgebäck, Corn Dogs neben Reibekuchen — die Brücke ist das Rezept.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-numeral">03</div>
+        <h3>Ruhrgebiet.<br>Mit Seele.</h3>
+        <p>Cranger Kirmes, Cranger Kirmes, Cranger Kirmes. Die größte Kirmes Europas liegt vor unserer Tür. Unsere Rezepte feiern das — ohne American-Glory-Schein.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- CATEGORIES -->
   <section class="categories scroll-reveal" id="rezepte">
