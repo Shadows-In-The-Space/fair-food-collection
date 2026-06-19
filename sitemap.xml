@@ -67,6 +67,72 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/carnival-food.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/dutch-oven-vs-gusseiserne-pfanne.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/fair-food-deutschland.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/frittier-fehler.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/frittiert-sucht.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/jahrmarkt-in-die-welt.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/soul-food-kultur.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/southern-soul-food.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/state-fair-geschichte.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/texas-state-fair.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/blog/wissenschaft-des-frittierens.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://goldencrumb.shadowsinthe.space/blog.html</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -134,6 +200,12 @@
   </url>
   <url>
     <loc>https://goldencrumb.shadowsinthe.space/crab-rangoon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/datenschutz.html</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -313,7 +385,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://goldencrumb.shadowsinthe.space/index.html</loc>
+    <loc>https://goldencrumb.shadowsinthe.space/impressum.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldencrumb.shadowsinthe.space/</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -452,12 +530,6 @@
   </url>
   <url>
     <loc>https://goldencrumb.shadowsinthe.space/turkey-leg.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://goldencrumb.shadowsinthe.space/ueber.html</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
