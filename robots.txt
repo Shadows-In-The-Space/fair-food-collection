@@ -1,0 +1,60 @@
+# robots.txt — Golden Crumbs
+# https://goldencrumb.shadowsinthe.space
+# Last updated: 2026-06-19
+
+# ─────────────────────────────────────────────────────────────────
+# Default: Allow all standard crawlers
+# ─────────────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /blog/
+
+# ─────────────────────────────────────────────────────────────────
+# AI crawlers — explicitly allowed for GEO / AI citation
+# Sources: official bot lists from OpenAI, Anthropic, Perplexity,
+# Google, Apple, Cohere. Last verified 2026-06-19.
+# ─────────────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────────
+# Sitemap
+# ─────────────────────────────────────────────────────────────────
+Sitemap: https://goldencrumb.shadowsinthe.space/sitemap.xml
