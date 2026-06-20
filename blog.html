@@ -126,14 +126,23 @@
     .featured-post-content .blog-card-cat { color: var(--ketchup); }
     .featured-post-content h3 { font-size: 2rem; margin-bottom: 16px; line-height: 1.2; }
     .featured-post-content p { color: #555; font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; }
+    .guides-section { margin-top: 64px; }
+    .guides-section .section-label { color: var(--mustard); }
+    .guide-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--cream-pie); border: 2px dashed var(--mustard); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(232,163,23,0.18); }
+    .guide-feature-img { width: 100%; height: 100%; object-fit: cover; min-height: 380px; background: linear-gradient(135deg, var(--mustard), var(--sweet-potato)); }
+    .guide-feature-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .guide-feature-content .blog-card-cat { color: var(--mustard); font-weight: 700; }
+    .guide-feature-content h3 { font-family: 'Abril Fatface', serif; font-size: 2.2rem; margin-bottom: 16px; line-height: 1.15; color: var(--brown); }
+    .guide-feature-content p { color: #555; font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; }
+    .guide-feature-stats { display: flex; gap: 24px; margin-top: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; color: #888; letter-spacing: 0.5px; text-transform: uppercase; }
     .checker-divider { height: 16px; background-image: repeating-conic-gradient(var(--cream) 0% 25%, var(--ketchup) 0% 50%); background-size: 32px 32px; }
+    @media (max-width: 768px) { nav { padding: 12px 24px; } .nav-links { gap: 16px; } .nav-links a { font-size: 0.8rem; } .blog-hero { padding: 48px 24px; } .blog-grid-section { padding: 48px 24px; } .featured-post { grid-template-columns: 1fr; } .featured-post-content { padding: 32px; } .guide-feature { grid-template-columns: 1fr; } .guide-feature-content { padding: 32px; } }
     footer { background: var(--brown); color: var(--cream); padding: 48px 48px 32px; text-align: center; }
     .footer-logo { font-family: 'Abril Fatface', serif; font-size: 2rem; color: var(--mustard); margin-bottom: 16px; }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; }
     .footer-links a { color: rgba(253,246,227,0.7); text-decoration: none; font-family: 'Josefin Sans', sans-serif; font-size: 0.85rem; }
     .footer-links a:hover { color: var(--mustard); }
     .footer-copy { font-size: 0.85rem; opacity: 0.5; }
-    @media (max-width: 768px) { nav { padding: 12px 24px; } .nav-links { gap: 16px; } .nav-links a { font-size: 0.8rem; } .blog-hero { padding: 48px 24px; } .blog-grid-section { padding: 48px 24px; } .featured-post { grid-template-columns: 1fr; } .featured-post-content { padding: 32px; } }
   </style>
 </head>
 <body>
@@ -176,6 +185,24 @@
         <span class="read-more">Weiterlesen →</span>
       </div>
     </a>
+
+    <div class="guides-section">
+      <p class="section-label">★ Tiefe Guides ★</p>
+      <a href="guide/deep-frying-at-home.html" class="guide-feature">
+        <img src="https://images.unsplash.com/photo-1625938145744-533e82c4f3f8?w=800&q=80" alt="Frittieren zu Hause — goldbraunes Gargut im Topf" class="guide-feature-img" loading="lazy">
+        <div class="guide-feature-content">
+          <span class="blog-card-cat">★ Master Guide</span>
+          <h3>Deep Frying at Home — Der komplette Guide</h3>
+          <p>Frittieren zu Hause ohne Fritteuse: Öl-Auswahl, perfekte Temperatur, Schritt-für-Schritt-Technik, Sicherheit und Pflege des Frittieröls. Plus die häufigsten Fehler und wie du sie vermeidest — mit Affiliate-Empfehlungen für Equipment aus der Testküche.</p>
+          <span class="read-more">Guide lesen →</span>
+          <div class="guide-feature-stats">
+            <span>📖 6000+ Wörter</span>
+            <span>❓ 8 FAQs</span>
+            <span>🛒 Equipment-Liste</span>
+          </div>
+        </div>
+      </a>
+    </div>
 
     <p class="section-label" style="margin-top: 48px;">Aktuelle Beiträge</p>
     <div class="blog-grid">
