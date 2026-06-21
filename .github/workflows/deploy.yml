@@ -1,0 +1,85 @@
+name: Deploy
+
+# Triggers: push to main, or manual dispatch from GitHub UI / `gh workflow run`.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One job, single runner. Static sites are tiny — no need for matrix builds.
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      # === Per-Repo Hart-Codierung (für jeden Repo anpassen) ===
+      STACK: static                      # static | nextjs | nuxt
+      DOMAIN: goldencrumb.shadowsinthe.space
+      DEPLOY_TARGET: /home/sonny/apps/goldencrumb
+      BUILD_CMD: ""                      # leer für static; "build" für next/nuxt
+      BUILD_OUTPUT: .                    # "." für static; ".output/public" für next/nuxt
+      CF_PURGE: false                    # true für CF-Edge-Domains
+      HETZNER_HOST: 138.199.166.219
+      DEPLOY_USER: sonny
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # === Build (nur für Next/Nuxt) ===
+      - name: Setup Node
+        if: env.STACK != 'static'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install + Build
+        if: env.STACK != 'static'
+        run: |
+          npm ci
+          if [ -n "$BUILD_CMD" ]; then npm run "$BUILD_CMD"; fi
+
+      # === SSH-Key in den Runner laden ===
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.HETZNER_DEPLOY_KEY }}
+
+      # === Deploy via rsync in den bind-mount-Source-Pfad ===
+      # Traefik-Routing + Container-nginx lesen den Pfad on-the-fly
+      # (ro bind-mount). Kein container-restart, kein nginx-reload nötig.
+      - name: Deploy via rsync
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$HETZNER_HOST" >> ~/.ssh/known_hosts
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='DESIGN.md' \
+            --exclude='*.md' \
+            --exclude='briefs/' \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            "${{ env.BUILD_OUTPUT }}/" \
+            "$DEPLOY_USER@$HETZNER_HOST:$DEPLOY_TARGET/"
+
+      # === CF Cache Purge (nur für CF-Edge-Domains) ===
+      - name: CF Cache Purge
+        if: env.CF_PURGE == 'true'
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}'
+
+      # === Health-Check ===
+      - name: Health-Check
+        run: |
+          sleep 3
+          STATUS=$(curl -sk -o /dev/null -w "%{http_code}" "https://$DOMAIN/")
+          if [ "$STATUS" != "200" ]; then
+            echo "Health-Check failed: $STATUS"
+            exit 1
+          fi
+          echo "Health-Check OK: $DOMAIN -> $STATUS"
