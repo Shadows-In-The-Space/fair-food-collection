@@ -73,21 +73,38 @@ function changefreqFor(rel) {
   return 'monthly';
 }
 
-function fmtDate(mtime) {
-  return mtime.toISOString().slice(0, 10); // YYYY-MM-DD
-}
-
 function locFor(rel) {
   if (rel === 'index.html') return `${SITE}/`;
   return `${SITE}/${rel}`;
 }
 
+// Returns YYYY-MM-DD for the last git commit that touched `rel`.
+// Falls back to filesystem mtime if git is unavailable or the file is
+// untracked. We prefer git dates because actions/checkout resets mtimes
+// to the checkout time, so mtimes in CI always show "today" — useless
+// for telling crawlers when a page actually changed.
+function lastmodFor(rel) {
+  const { execFileSync } = require('child_process');
+  try {
+    const out = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cs', '--', rel],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    ).trim();
+    if (out && /^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
+  } catch (_) { /* git missing or file untracked */ }
+  // Fallback: filesystem mtime
+  try {
+    return fs.statSync(path.join(ROOT, rel)).mtime.toISOString().slice(0, 10);
+  } catch (_) {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
 function urlEntry(rel) {
-  const filePath = path.join(ROOT, rel);
-  const mtime = fs.statSync(filePath).mtime;
   return `  <url>
     <loc>${locFor(rel)}</loc>
-    <lastmod>${fmtDate(mtime)}</lastmod>
+    <lastmod>${lastmodFor(rel)}</lastmod>
     <changefreq>${changefreqFor(rel)}</changefreq>
     <priority>${priorityFor(rel)}</priority>
   </url>`;
@@ -108,7 +125,7 @@ ${entries}
 </urlset>
 `;
   fs.writeFileSync(OUT, xml);
-  const uniqueDates = new Set(files.map(f => fmtDate(fs.statSync(path.join(ROOT, f)).mtime)));
+  const uniqueDates = new Set(files.map(lastmodFor));
   console.log(`✓ sitemap.xml regenerated: ${files.length} URLs, ${uniqueDates.size} unique lastmod dates`);
 }
 
