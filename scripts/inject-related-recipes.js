@@ -29,14 +29,19 @@ const SCRIPT_TAG = '<script src="js/related-recipes.js" defer></script>';
 const INSERT_BLOCK = `\n  ${PLACEHOLDER}\n  ${SCRIPT_TAG}\n`;
 
 function inject(html) {
-  // Already has either piece? Skip.
-  if (html.includes(PLACEHOLDER) || html.includes('js/related-recipes.js')) {
+  // Already has either piece in the right place (right before </footer>)?
+  const footerIdx = html.lastIndexOf('</footer>');
+  if (footerIdx === -1) {
+    // No footer — skip silently. Don't risk breaking the layout.
     return { html, changed: false };
   }
-  // Insert before </body>. If </body> missing, skip (don't risk breaking).
-  const idx = html.lastIndexOf('</body>');
-  if (idx === -1) return { html, changed: false };
-  const next = html.slice(0, idx) + INSERT_BLOCK + html.slice(idx);
+  // Search for the placeholder + script block in the 200 chars before </footer>.
+  // If found, skip (already injected correctly).
+  const window = html.slice(Math.max(0, footerIdx - 300), footerIdx);
+  if (window.includes(PLACEHOLDER) || window.includes('js/related-recipes.js')) {
+    return { html, changed: false };
+  }
+  const next = html.slice(0, footerIdx) + INSERT_BLOCK + html.slice(footerIdx);
   return { html: next, changed: true };
 }
 
