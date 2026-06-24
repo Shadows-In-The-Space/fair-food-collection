@@ -32,7 +32,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          # No `cache: 'npm'` here — static sites have no package-lock.json,
+          # and Setup Node would fail on the missing-lockfile check. Cache is
+          # only useful for next/nuxt stacks (see Install + Build below).
 
       # === Sitemap regeneration (static + dynamic) ===
       # Reads per-file mtime so <lastmod> stays accurate. Replaces the previous
