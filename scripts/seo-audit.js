@@ -125,11 +125,11 @@ function checkPage(file) {
   else if (desc.length > 160) checks.push({ id: 'description', status: 'warn', msg: `too long (${desc.length} chars)` });
   else checks.push({ id: 'description', status: 'pass', msg: `${desc.length} chars` });
 
-  // 3. H1
-  const h1Matches = [...html.matchAll(/<h1[^>]*>([^<]+)<\/h1>/g)];
-  if (h1Matches.length === 0) checks.push({ id: 'h1', status: 'fail', msg: 'no H1' });
-  else if (h1Matches.length > 1) checks.push({ id: 'h1', status: 'warn', msg: `${h1Matches.length} H1s` });
-  else checks.push({ id: 'h1', status: 'pass', msg: h1Matches[0][1].trim().slice(0, 60) });
+  // 3. H1 (use a tag-based scan to handle nested elements like <br><span>)
+  const h1OpenCount = (html.match(/<h1\b/gi) || []).length;
+  if (h1OpenCount === 0) checks.push({ id: 'h1', status: 'fail', msg: 'no H1' });
+  else if (h1OpenCount > 1) checks.push({ id: 'h1', status: 'warn', msg: `${h1OpenCount} H1s` });
+  else checks.push({ id: 'h1', status: 'pass', msg: 'present' });
 
   // 4. H2/H3 hierarchy
   const headingLevels = [];
@@ -169,9 +169,16 @@ function checkPage(file) {
     const types = block.matchAll(/"@type"\s*:\s*"([^"]+)"/g);
     for (const t of types) schemaTypes.add(t[1]);
   }
-  const desiredSchema = ['Recipe', 'FAQPage', 'BreadcrumbList', 'Organization', 'WebSite'];
-  if (category === 'recipe' || category === 'pillar') {
+  if (category === 'recipe') {
     if (!schemaTypes.has('Recipe')) checks.push({ id: 'schema', status: 'fail', msg: 'no Recipe schema' });
+    else checks.push({ id: 'schema', status: 'pass', msg: [...schemaTypes].join(', ') });
+  } else if (category === 'pillar' || category === 'blog') {
+    // Pillar/blog pages are guides, not individual recipes.
+    // Accept Article, CollectionPage, FAQPage, ItemList, or Recipe as valid.
+    const guideTypes = ['Article', 'CollectionPage', 'FAQPage', 'ItemList', 'Recipe', 'WebPage'];
+    const hasValid = guideTypes.some(t => schemaTypes.has(t));
+    if (!hasValid) checks.push({ id: 'schema', status: 'fail', msg: 'no Article/CollectionPage/FAQPage schema' });
+    else if (schemaTypes.size < 2) checks.push({ id: 'schema', status: 'warn', msg: [...schemaTypes].join(', ') });
     else checks.push({ id: 'schema', status: 'pass', msg: [...schemaTypes].join(', ') });
   } else {
     if (schemaTypes.size >= 2) checks.push({ id: 'schema', status: 'pass', msg: [...schemaTypes].join(', ') });
