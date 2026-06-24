@@ -26,6 +26,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history (default is shallow). Needed so scripts/generate-sitemap.js
+          # can call `git log -1 -- <file>` per page and get the real per-file commit
+          # date for <lastmod>. Without this, every page shows today's date.
+          fetch-depth: 0
 
       # === Build (nur für Next/Nuxt) ===
       - name: Setup Node
