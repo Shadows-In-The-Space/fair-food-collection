@@ -2,8 +2,12 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const DATA_FILE = '/home/sonny/goldencrumb/emails.json';
-const PORT = 3001;
+// Data dir is env-driven so this runs on any host (Sonny's /home/sonny/goldencrumb
+// on mothership, /home/z3r0b1nary/goldencrumb locally, etc.).
+// Set GOLDENCRUMB_DATA_DIR in the container env to override.
+const DATA_DIR = process.env.GOLDENCRUMB_DATA_DIR || '/home/sonny/goldencrumb';
+const DATA_FILE = path.join(DATA_DIR, 'emails.json');
+const PORT = process.env.PORT || 3001;
 
 function loadEmails() {
   try {

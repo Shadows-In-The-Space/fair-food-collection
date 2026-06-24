@@ -5,8 +5,12 @@ services:
       dockerfile: Dockerfile.newsletter
     container_name: goldencrumb-newsletter
     restart: always
+    environment:
+      # Container-side path. Must match the right side of the bind-mount below.
+      GOLDENCRUMB_DATA_DIR: ${GOLDENCRUMB_DATA_DIR:-/home/sonny/goldencrumb}
     volumes:
-      - /home/sonny/goldencrumb:/home/sonny/goldencrumb
+      # Source = host path, target = container path (must equal GOLDENCRUMB_DATA_DIR).
+      - ${GOLDENCRUMB_DATA_DIR:-/home/sonny/goldencrumb}:${GOLDENCRUMB_DATA_DIR:-/home/sonny/goldencrumb}
     networks:
       - agency-app_app-network
     labels:

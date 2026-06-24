@@ -9,7 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$dataFile = '/home/sonny/goldencrumb/emails.json';
+// Data dir is env-driven so this runs on any host. Set GOLDENCRUMB_DATA_DIR
+// in the PHP-FPM / Apache / nginx env to override the default.
+$dataDir = getenv('GOLDENCRUMB_DATA_DIR');
+if ($dataDir === false || $dataDir === '') {
+    $dataDir = '/home/sonny/goldencrumb';
+}
+$dataFile = $dataDir . '/emails.json';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = file_get_contents('php://input');

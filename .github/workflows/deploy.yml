@@ -29,12 +29,18 @@ jobs:
 
       # === Build (nur für Next/Nuxt) ===
       - name: Setup Node
-        if: env.STACK != 'static'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
+      # === Sitemap regeneration (static + dynamic) ===
+      # Reads per-file mtime so <lastmod> stays accurate. Replaces the previous
+      # hand-written sitemap where every entry had a static 2026-06-19 date.
+      - name: Regenerate sitemap
+        run: node scripts/generate-sitemap.js
+
+      # === Build (nur für Next/Nuxt) ===
       - name: Install + Build
         if: env.STACK != 'static'
         run: |
@@ -60,6 +66,12 @@ jobs:
             --exclude='DESIGN.md' \
             --exclude='*.md' \
             --exclude='briefs/' \
+            --exclude='scripts/' \
+            --exclude='Dockerfile.*' \
+            --exclude='docker-compose.*' \
+            --exclude='nginx.*.conf' \
+            --exclude='subscribe.php' \
+            --exclude='newsletter-server.js' \
             -e "ssh -o StrictHostKeyChecking=no" \
             "${{ env.BUILD_OUTPUT }}/" \
             "$DEPLOY_USER@$HETZNER_HOST:$DEPLOY_TARGET/"
