@@ -1,0 +1,416 @@
+[
+  {
+    "slug": "fried-onion-rings",
+    "title": "Bloomin' Onion",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1599021456807-25db0f974333?w=1200&q=80"
+  },
+  {
+    "slug": "fried-shrimp",
+    "title": "Coconut Shrimp",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd43?w=1200&q=80"
+  },
+  {
+    "slug": "crab-rangoon",
+    "title": "Crab Rangoon",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1599021456807-25db0f974333?w=1200&q=80"
+  },
+  {
+    "slug": "fried-mushrooms",
+    "title": "Crispy Fried Mushrooms",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=1200&q=80"
+  },
+  {
+    "slug": "fried-avocado",
+    "title": "Deep-Fried Avocado Bites",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=1200&q=80"
+  },
+  {
+    "slug": "fried-green-beans",
+    "title": "Fried Green Beans",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?w=1200&q=80"
+  },
+  {
+    "slug": "mac-cheese-wedges",
+    "title": "Fried Mac & Cheese Wedges",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=1200&q=80"
+  },
+  {
+    "slug": "funnel-cake",
+    "title": "Funnel Cakes",
+    "badge": "Frittiert",
+    "image": "/images/funnel-cake-hero.png"
+  },
+  {
+    "slug": "mozzarella-sticks",
+    "title": "Mozzarella Sticks",
+    "badge": "Frittiert",
+    "image": "https://images.unsplash.com/photo-1548340748-bd0e2f8b0805?w=1200&q=80"
+  },
+  {
+    "slug": "sweet-tea-arnold-palmer",
+    "title": "Arnold Palmer — Tee trifft Limonade",
+    "badge": "Getränke",
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1200&q=80"
+  },
+  {
+    "slug": "lemonade",
+    "title": "Fresh Lemonade",
+    "badge": "Getränke",
+    "image": "/images/lemonade.png"
+  },
+  {
+    "slug": "sweet-tea",
+    "title": "Sweet Tea",
+    "badge": "Getränke",
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1200&q=80"
+  },
+  {
+    "slug": "beer-cheese-dip",
+    "title": "Beer Cheese Dip",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=1200&q=80"
+  },
+  {
+    "slug": "cajun-fried-fish",
+    "title": "Cajun Fried Fish",
+    "badge": "Herzhaft",
+    "image": null
+  },
+  {
+    "slug": "corn-dogs",
+    "title": "Corn Dogs",
+    "badge": "Herzhaft",
+    "image": "/images/corn-dogs.png"
+  },
+  {
+    "slug": "coleslaw",
+    "title": "Creamy Coleslaw",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1592982537447-74403a8e7c5d?w=1200&q=80"
+  },
+  {
+    "slug": "mac-and-cheese-bites",
+    "title": "Deep-Fried Mac & Cheese Bites",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=1200&q=80"
+  },
+  {
+    "slug": "elote",
+    "title": "Elote — Mexikanischer Straßenmais",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1551244072-5d12893278bc?w=1200&q=80"
+  },
+  {
+    "slug": "fried-banana-peppers",
+    "title": "Fried Banana Peppers",
+    "badge": "Herzhaft",
+    "image": null
+  },
+  {
+    "slug": "fried-bologna-sandwich",
+    "title": "Fried Bologna Sandwich",
+    "badge": "Herzhaft",
+    "image": null
+  },
+  {
+    "slug": "fried-cheese",
+    "title": "Fried Cheese",
+    "badge": "Herzhaft",
+    "image": "/images/fried-cheese-square.png"
+  },
+  {
+    "slug": "fried-mac-and-cheese-wedges",
+    "title": "Fried Mac and Cheese Wedges",
+    "badge": "Herzhaft",
+    "image": null
+  },
+  {
+    "slug": "fried-pickles",
+    "title": "Fried Pickles",
+    "badge": "Herzhaft",
+    "image": "/images/fried-pickles.png"
+  },
+  {
+    "slug": "hush-puppies",
+    "title": "Hush Puppies",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80"
+  },
+  {
+    "slug": "jalapeno-poppers",
+    "title": "Jalapeño Poppers",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=1200&q=80"
+  },
+  {
+    "slug": "fried-potato-skins",
+    "title": "Loaded Baked Potato Skins",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=1200&q=80"
+  },
+  {
+    "slug": "loaded-fries",
+    "title": "Loaded Fries",
+    "badge": "Herzhaft",
+    "image": "/images/loaded-fries.png"
+  },
+  {
+    "slug": "baked-beans",
+    "title": "Slow-Cooked Baked Beans",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1596560548464-f010549b84d7?w=1200&q=80"
+  },
+  {
+    "slug": "sweet-potato-fries",
+    "title": "Sweet Potato Fries",
+    "badge": "Herzhaft",
+    "image": "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=1200&q=80"
+  },
+  {
+    "slug": "baked-mac-and-cheese",
+    "title": "Baked Mac and Cheese — Ofen-Version",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=1200&q=80"
+  },
+  {
+    "slug": "bbq-pulled-pork",
+    "title": "BBQ Pulled Pork",
+    "badge": "Soul Food",
+    "image": "/images/bbq-pulled-pork.png"
+  },
+  {
+    "slug": "bbq-ribs",
+    "title": "BBQ Ribs — Baby Back Ribs",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80"
+  },
+  {
+    "slug": "biscuits-gravy",
+    "title": "Biscuits and Gravy",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1509365390695-33aee754301f?w=1200&q=80"
+  },
+  {
+    "slug": "black-eyed-peas",
+    "title": "Black-Eyed Peas",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&q=80"
+  },
+  {
+    "slug": "boudin-balls",
+    "title": "Boudin Balls",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=1200&h=600&fit=crop"
+  },
+  {
+    "slug": "butter-beans",
+    "title": "Butter Beans",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=1200&q=80"
+  },
+  {
+    "slug": "fried-catfish-po-boy",
+    "title": "Catfish Po' Boy",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1200&q=80"
+  },
+  {
+    "slug": "chicken-fried-steak",
+    "title": "Chicken Fried Steak",
+    "badge": "Soul Food",
+    "image": "/images/chicken-fried-steak-hero.jpg"
+  },
+  {
+    "slug": "corn-bread",
+    "title": "Cornbread",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1509365390695-33aee754301f?w=1200&q=80"
+  },
+  {
+    "slug": "etouffee",
+    "title": "Crawfish Étouffée",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=1200&h=600&fit=crop"
+  },
+  {
+    "slug": "dirty-rice",
+    "title": "Dirty Rice",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=1200&h=600&fit=crop"
+  },
+  {
+    "slug": "fried-green-tomatoes",
+    "title": "Fried Green Tomatoes",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1592921870789-04563d55041c?w=1200&q=80"
+  },
+  {
+    "slug": "fried-okra",
+    "title": "Fried Okra",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200&q=80"
+  },
+  {
+    "slug": "pimento-cheese",
+    "title": "Pimento Cheese",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1200&q=80"
+  },
+  {
+    "slug": "red-beans-rice",
+    "title": "Red Beans and Rice",
+    "badge": "Soul Food",
+    "image": "/images/red-beans-rice-hero.jpg"
+  },
+  {
+    "slug": "shrimp-and-grits",
+    "title": "Shrimp and Grits",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=80"
+  },
+  {
+    "slug": "sloppy-joes",
+    "title": "Sloppy Joes — Das American Classic",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80"
+  },
+  {
+    "slug": "collard-greens",
+    "title": "Slow-Cooked Collard Greens",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1200&q=80"
+  },
+  {
+    "slug": "smoked-brisket",
+    "title": "Smoked Brisket",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80"
+  },
+  {
+    "slug": "turkey-leg",
+    "title": "Smoked Turkey Leg",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80"
+  },
+  {
+    "slug": "fried-catfish",
+    "title": "Southern Fried Catfish",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=1200&q=80"
+  },
+  {
+    "slug": "fried-chicken-sandwich",
+    "title": "Southern Fried Chicken Sandwich",
+    "badge": "Soul Food",
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=1200&q=80"
+  },
+  {
+    "slug": "sweet-potato-casserole",
+    "title": "Sweet Potato Casserole",
+    "badge": "Soul Food",
+    "image": "/images/sweet-potato-casserole-hero.jpg"
+  },
+  {
+    "slug": "apple-pie-spring-rolls",
+    "title": "Apple Pie Spring Rolls",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=1200&q=80"
+  },
+  {
+    "slug": "banana-pudding",
+    "title": "Banana Pudding",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1559620192-032c4bc4676e?w=1200&q=80"
+  },
+  {
+    "slug": "beignets",
+    "title": "Beignets",
+    "badge": "Süß",
+    "image": "/images/beignets-hero.jpg"
+  },
+  {
+    "slug": "bread-pudding",
+    "title": "Bread Pudding",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=1200&q=80"
+  },
+  {
+    "slug": "candied-bacon",
+    "title": "Candied Bacon — Süß-würziger Bacon",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1584452241509-4d1b1e1f2f0e?w=1200&q=80"
+  },
+  {
+    "slug": "deep-fried-cheesecake",
+    "title": "Deep Fried Cheesecake",
+    "badge": "Süß",
+    "image": null
+  },
+  {
+    "slug": "deep-fried-ice-cream",
+    "title": "Deep-Fried Ice Cream",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=1200&q=80"
+  },
+  {
+    "slug": "fried-banana",
+    "title": "Fried Bananas",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b09e?w=1200&q=80"
+  },
+  {
+    "slug": "fried-oreos",
+    "title": "Fried Oreos",
+    "badge": "Süß",
+    "image": "/images/fried-oreos.png"
+  },
+  {
+    "slug": "fried-twinkies",
+    "title": "Fried Twinkies",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&q=80"
+  },
+  {
+    "slug": "funnel-fries",
+    "title": "Funnel Fries",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=1200&q=80"
+  },
+  {
+    "slug": "king-cake",
+    "title": "King Cake",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&h=600&fit=crop"
+  },
+  {
+    "slug": "mini-donuts",
+    "title": "Mini Donuts",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&q=80"
+  },
+  {
+    "slug": "peach-cobbler",
+    "title": "Peach Cobbler",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1200&q=80"
+  },
+  {
+    "slug": "pecan-pie",
+    "title": "Pecan Pie",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1597238023064-1b1dc1d5a2ca?w=1200&q=80"
+  },
+  {
+    "slug": "snickers-salad",
+    "title": "Snickers Salad",
+    "badge": "Süß",
+    "image": "https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?w=1200&q=80"
+  }
+]
